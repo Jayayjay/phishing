@@ -12,7 +12,7 @@ try:
     model = joblib.load(MODEL_PATH / 'model.pkl')
     print("✓ Models loaded successfully")
 except Exception as e:
-    print(f"⚠️  Warning: Could not load models: {e}")
+    print(f"   Warning: Could not load models: {e}")
     print("   Please run 'python train.py' first")
     vectorizer = None
     model = None
@@ -121,7 +121,7 @@ def test_samples():
         try:
             is_phishing, prob = predict_url(url)
             risk = get_risk_level(prob)
-            verdict = "PHISH" if is_phishing else "✅ SAFE"
+            verdict = "PHISH" if is_phishing else "SAFE"
             
             print(f"{url[:48]:<50} {verdict:<10} {prob:>6.2%}       {risk}")
         except Exception as e:
@@ -221,7 +221,7 @@ Threshold:
             print(f"\n{'='*70}")
             print(f"URL: {url}")
             print(f"{'='*70}")
-            print(f"Verdict: {'PHISHING' if is_phishing else '✅ LEGITIMATE'}")
+            print(f"Verdict: {'PHISHING' if is_phishing else 'LEGITIMATE'}")
             print(f"Probability: {prob:.4f}")
             print(f"Risk Level: {risk}")
             print(f"{'='*70}\n")
